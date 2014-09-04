@@ -1,7 +1,7 @@
 function Rocket(x,y) {
 
-  this.x = 0;
-  this.y = 0;
+  this.x = 1200; // 'x' is right position from screen
+  this.y = 100;
 
 }
 

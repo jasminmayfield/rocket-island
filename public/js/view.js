@@ -4,6 +4,8 @@ function View(user, rocket)
   this.rocket = rocket;
   this.userInfoSelector = "#user-message";
   this.rocketSelector = ".rocketship";
+  this.islandSelector = ".island-image"
+  this.startButtonSelector = "#start";
 }
 
 View.prototype = {
@@ -15,6 +17,11 @@ View.prototype = {
 
   updateRocketPosition: function() {
     $(this.rocketSelector).css("left",this.rocket.x).css("top",this.rocket.y)
+  },
+
+  startButton: function() {
+    $(this.rocketSelector).addClass("active");
+    $(this.islandSelector).addClass("active");
   }
 
 }

@@ -8,22 +8,18 @@ function Controller()
 
 Controller.prototype = {
 
-  start: function()
-  {
+  start: function(){
     this.user = new User();
     this.rocket = new Rocket();
     this.view = new View(this.user,this.rocket);
     this.view.showUserInformation();
     this.bindEvents();
   },
-
-  bindEvents: function()
-  {
-    $(document).on("keydown",this.keypress.bind(this))
+  bindEvents: function(){
+    $(document).on("keydown",this.keypress.bind(this));
+    $(this.view.startButtonSelector).on("click", this.startButton.bind(this))
   },
-
-  keypress: function(e)
-  {
+  keypress: function(e) {
     if(e.keyCode == 37) {
       this.rocket.moveLeft();
     }
@@ -36,9 +32,11 @@ Controller.prototype = {
     if(e.keyCode == 40) {
       this.rocket.moveDown();
     }
-
     this.view.updateRocketPosition();
+  },
+  startButton: function(e) {
+    this.view.startButton();
   }
 
-}
+};
 
