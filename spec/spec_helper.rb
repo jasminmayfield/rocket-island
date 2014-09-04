@@ -12,19 +12,29 @@ require 'shoulda-matchers'
 require 'rack/test'
 require 'capybara'
 require 'capybara/rspec'
+require 'factory_girl'
+require 'faker'
 
 require_relative 'support/request_helpers'
+require_relative 'factories/user'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.include FactoryGirl::Syntax::Methods
   config.include Requests::JsonHelpers
 
   config.before do
     User.destroy_all
-    Note.destroy_all
+
   end
+end
+
+def session
+  last_request.env['rack.session']
 end
 
 def app
   Sinatra::Application
 end
+
+Capybara.app = app
