@@ -1,9 +1,17 @@
-#island-image {
+.island-image {
+  display: none;
+}
+.rocketship {
+  display: none;
+}
+#active {
+  display: block;
   position: absolute;
+}
+#active .island-image {
   bottom: 20px;
 }
-#rocketship {
-  position: absolute;
+#active .rocketship {
   right: 10px;
   height: 300px;
 }

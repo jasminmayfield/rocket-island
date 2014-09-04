@@ -3,7 +3,7 @@ function View(user, rocket)
   this.user = user;
   this.rocket = rocket;
   this.userInfoSelector = "#user-message";
-  this.rocketSelector = "#rocketship";
+  this.rocketSelector = ".rocketship";
 }
 
 View.prototype = {
