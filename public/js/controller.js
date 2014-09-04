@@ -1,8 +1,8 @@
-function Controller()
-{
+function Controller() {
   this.user = null;
   this.rocket = null;
   this.view = null;
+  this.interval = null;
 
 }
 
@@ -14,13 +14,23 @@ Controller.prototype = {
     this.view = new View(this.user,this.rocket);
     this.view.showUserInformation();
     this.bindEvents();
+<<<<<<< HEAD
+=======
     this.pressingUp = false; //new var to track rocket's upward acceleration, used to stop gravity's impact while accellerating
+>>>>>>> master
   },
+
   bindEvents: function(){
     $(document).on("keydown",this.keypress.bind(this));
+<<<<<<< HEAD
+    $(this.view.startButtonSelector).on("click", this.startButton.bind(this));
+    $(this.view.stopButtonSelector).on("click", this.stopButton.bind(this))
+=======
     $(document).on("keyup",this.keyrelease.bind(this)); //event listener is keyup, calls our keyrelease function
     $(this.view.startButtonSelector).on("click", this.startButton.bind(this))
+>>>>>>> master
   },
+
   keypress: function(e) {
     if(e.keyCode == 37) {
       this.rocket.moveLeft();
@@ -37,11 +47,15 @@ Controller.prototype = {
     }
     this.view.updateRocketPosition();
   },
+<<<<<<< HEAD
+
+=======
   keyrelease: function(e) {
     if(e.keyCode == 38) {
       this.pressingUp = false;
     };
   },
+>>>>>>> master
   gravity: function()
   {
     if(!this.pressingUp){
@@ -49,9 +63,21 @@ Controller.prototype = {
     };
     this.view.updateRocketPosition();
   },
+
   startButton: function(e) {
     this.view.startButton();
+<<<<<<< HEAD
+    this.interval = setInterval(this.gravity.bind(this),150);
+  },
+
+  stopButton: function(e) {
+
+    this.rocket.resetLocation;
+    clearInterval(this.interval);
+    this.view.updateRocketPosition();
+=======
     setInterval(this.gravity.bind(this), 100);
+>>>>>>> master
   }
 
 };
