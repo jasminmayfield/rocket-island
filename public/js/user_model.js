@@ -1,7 +1,6 @@
-function user() {
-
-    this.name = "";
-    this.points = 0;
+function User() {
+    this.name = "Hamlet";
+    this.points = 145;
 };
 
 

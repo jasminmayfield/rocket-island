@@ -1,8 +1,8 @@
-function rocket() {
+function Rocket() {
   this.location = 0;
 }
 
-rocket.prototype = {
+Rocket.prototype = {
   incrementLocation: function() {
     this.location = this.location + 10;
   }
