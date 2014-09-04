@@ -15,6 +15,7 @@ Controller.prototype = {
     this.view = new View(this.user,this.rocket);
     this.view.showUserInformation();
     this.bindEvents();
+    setInterval(this.gravity.bind(this),150);
   },
 
   bindEvents: function()
@@ -36,7 +37,11 @@ Controller.prototype = {
     if(e.keyCode == 40) {
       this.rocket.moveDown();
     }
-
+    this.view.updateRocketPosition();
+  },
+  gravity: function()
+  {
+    this.rocket.moveDown();
     this.view.updateRocketPosition();
   }
 

@@ -15,3 +15,13 @@
   right: 10px;
   height: 300px;
 }
+#landing_pad{
+  z-index: 3000;
+  position: absolute;
+  top: 450px;
+  left: 230px;
+  height: 150px;
+  width: 200px;
+  border-color: red;
+  border-style: solid;
+}
