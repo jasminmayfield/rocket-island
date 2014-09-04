@@ -24,7 +24,7 @@
 </head>
 <body>
   <% if @user %>
-    <h2>Welcome <%= @user.name %></h2>
+    <h1>Welcome <%= @user.name %>, please click here to launch!</h1>
     <form id="log-out" method='get' action='/sign-out'>
       <input type='submit' value='Sign out'/>
     </form>
@@ -41,10 +41,10 @@
 
   <%= yield %>
   <div>
-    <img id="island-image" alt="Island" src="../css/imgs/islandimage.png" />
+    <img class="island-image" id="active" alt="Island" src="../css/imgs/islandimage.png" />
   </div>
   <div>
-    <img id="rocketship" alt="Rocketship" src="../css/imgs/rocketship.png" />
+    <img class="rocketship" id="active" alt="Rocketship" src="../css/imgs/rocketship2.png" />
   </div>
 </body>
 </html>
