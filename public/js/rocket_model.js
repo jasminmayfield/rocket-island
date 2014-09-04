@@ -24,5 +24,10 @@ Rocket.prototype = {
   incrementLocation: function() {
 
     this.location = this.location + 10;
+  },
+
+  resetLocation: function() {
+    this.x = 1200;
+    this.y = 100;
   }
 };

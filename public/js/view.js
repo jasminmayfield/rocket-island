@@ -6,6 +6,7 @@ function View(user, rocket)
   this.rocketSelector = ".rocketship";
   this.islandSelector = ".island-image"
   this.startButtonSelector = "#start";
+  this.stopButtonSelector = "#stop";
 }
 
 View.prototype = {
@@ -24,6 +25,10 @@ View.prototype = {
   startButton: function() {
     $(this.rocketSelector).addClass("active");
     $(this.islandSelector).addClass("active");
+  },
+
+  stopButton: function() {
+    this.updateRocketPosition()
   }
 
 }

@@ -1,8 +1,8 @@
-function Controller()
-{
+function Controller() {
   this.user = null;
   this.rocket = null;
   this.view = null;
+  this.interval = null;
 
 }
 
@@ -14,12 +14,14 @@ Controller.prototype = {
     this.view = new View(this.user,this.rocket);
     this.view.showUserInformation();
     this.bindEvents();
-
   },
+
   bindEvents: function(){
     $(document).on("keydown",this.keypress.bind(this));
-    $(this.view.startButtonSelector).on("click", this.startButton.bind(this))
+    $(this.view.startButtonSelector).on("click", this.startButton.bind(this));
+    $(this.view.stopButtonSelector).on("click", this.stopButton.bind(this))
   },
+
   keypress: function(e) {
     if(e.keyCode == 37) {
       this.rocket.moveLeft();
@@ -35,15 +37,24 @@ Controller.prototype = {
     }
     this.view.updateRocketPosition();
   },
+
   gravity: function()
   {
     this.rocket.moveDown();
 
     this.view.updateRocketPosition();
   },
+
   startButton: function(e) {
     this.view.startButton();
-    setInterval(this.gravity.bind(this),150);
+    this.interval = setInterval(this.gravity.bind(this),150);
+  },
+
+  stopButton: function(e) {
+
+    this.rocket.resetLocation;
+    clearInterval(this.interval);
+    this.view.updateRocketPosition();
   }
 
 };

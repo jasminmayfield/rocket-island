@@ -26,6 +26,7 @@
   <% if @user %>
     <h1>Welcome <%= @user.name %></h1>
     <button id="start">START</button>
+    <button id="stop">STOP</button>
     <form id="log-out" method='get' action='/sign-out'>
       <input type='submit' value='Sign out'/>
     </form>
