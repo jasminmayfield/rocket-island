@@ -1,0 +1,9 @@
+#island-image {
+  position: absolute;
+  bottom: 20px;
+}
+#rocketship {
+  position: absolute;
+  right: 10px;
+  height: 300px;
+}
