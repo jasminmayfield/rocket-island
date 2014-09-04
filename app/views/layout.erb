@@ -25,7 +25,14 @@
 <body>
   <% if @user %>
     <h2>Welcome <%= @user.name %></h2>
+    <form id="log-out" method='get' action='/sign-out'>
+      <input type='submit' value='Sign out'/>
+    </form>
   <% else %>
+
+    <% if @message %>
+      <%= @message %>
+    <% end %>
     <form id="log-in" method='post' action='/sign-in'>
       <input type='text' name='name'/>
       <input type='submit' value='Sign in'/>
