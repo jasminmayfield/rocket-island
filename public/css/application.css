@@ -1,21 +1,60 @@
+body {
+  background-color: rgb(206, 246, 245);
+}
+
+#nav-bar {
+  padding: 10px;
+  text-align: right;
+  background-color: rgba(0,0,0,0.3);
+}
+
+#game-name {
+  font-family: 'Lobster', cursive;
+  font-size: 50px;
+  text-align: center;
+}
+
+#control-panel {
+  text-align: center;
+}
+
+#start {
+  text-transform: none;
+  border-radius: 40px;
+  padding: 40px 60px;
+  background-color: #FC2847;
+  border: none;
+  box-shadow: 2 2 2 rgba;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  color: white; 
+}
+
 .island-image {
   display: none;
 }
+
 .rocketship {
   display: none;
 }
+
 .active {
   display: block;
   position: absolute;
 }
+
 .active.island-image {
   bottom: 20px;
+  left: -200px;
 }
+
 .active.rocketship {
-  left: 1200px;
+  left: 1000px;
   top: 100px;
   height: 300px;
 }
+
 #landing_pad{
   z-index: 3000;
   position: absolute;
@@ -25,4 +64,8 @@
   width: 200px;
   border-color: red;
   border-style: solid;
+}
+
+*:focus {
+    outline: 0;
 }
