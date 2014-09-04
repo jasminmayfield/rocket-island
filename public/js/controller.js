@@ -14,6 +14,7 @@ Controller.prototype = {
     this.view = new View(this.user,this.rocket);
     this.view.showUserInformation();
     this.bindEvents();
+
   },
   bindEvents: function(){
     $(document).on("keydown",this.keypress.bind(this));
@@ -34,8 +35,15 @@ Controller.prototype = {
     }
     this.view.updateRocketPosition();
   },
+  gravity: function()
+  {
+    this.rocket.moveDown();
+
+    this.view.updateRocketPosition();
+  },
   startButton: function(e) {
     this.view.startButton();
+    setInterval(this.gravity.bind(this),150);
   }
 
 };

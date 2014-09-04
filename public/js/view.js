@@ -17,6 +17,8 @@ View.prototype = {
 
   updateRocketPosition: function() {
     $(this.rocketSelector).css("left",this.rocket.x).css("top",this.rocket.y)
+    console.log(this.rocket)
+
   },
 
   startButton: function() {
