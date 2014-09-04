@@ -14,6 +14,7 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+
   <script src="/js/controller.js"></script>
   <script src="/js/view.js"></script>
   <script src="/js/user_model.js"></script>
@@ -22,6 +23,15 @@
   <title></title>
 </head>
 <body>
+  <% if @user %>
+    <h2>Welcome <%= @user.name %></h2>
+  <% else %>
+    <form id="log-in" method='post' action='/sign-in'>
+      <input type='text' name='name'/>
+      <input type='submit' value='Sign in'/>
+    </form>
+  <% end %>
+
   <%= yield %>
 </body>
 </html>
