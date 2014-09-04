@@ -33,7 +33,7 @@
       </form>
     <% end %>
   </div>
-  
+
   <%= yield %>
 
   <div id="control-panel">
@@ -49,7 +49,7 @@
       <% end %>
       <form id="log-in" method='post' action='/sign-in'>
         <input type='text' name='name'/>
-        <input type='submit' value='Sign in'/>
+        <input id='sign-in-button' type='submit' value='Sign in'/>
       </form>
     <% end %>
   </div>

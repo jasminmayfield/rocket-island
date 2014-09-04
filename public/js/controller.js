@@ -10,6 +10,7 @@ Controller.prototype = {
 
   start: function(){
     this.user = new User();
+
     this.rocket = new Rocket();
     this.view = new View(this.user,this.rocket);
     this.view.showUserInformation();
@@ -19,10 +20,20 @@ Controller.prototype = {
 
   bindEvents: function(){
     $(document).on("keydown",this.keypress.bind(this));
+    $(this.view.logInButtonSelector).on("click", this.logInButton.bind(this));
     $(this.view.startButtonSelector).on("click", this.startButton.bind(this));
     $(this.view.stopButtonSelector).on("click", this.stopButton.bind(this))
     $(document).on("keyup",this.keyrelease.bind(this)); //event listener is keyup, calls our keyrelease function
   },
+
+  logInButton: function(e) {
+    e.preventDefault();
+     // this.view.logInButton();
+     console.log("log in button function in controller")
+     console.log(this.user)
+     var logInUrl = $(this.view.logInButtonSelector).closest('form').attr("action");
+     this.user.logIn(logInUrl);
+       },
 
   keypress: function(e) {
     if(e.keyCode == 37) {

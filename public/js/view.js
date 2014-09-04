@@ -9,6 +9,7 @@ function View(user, rocket)
   this.stopButtonSelector = "#stop";
   this.controlPanelSelector = "#control-panel";
   this.gameNameSelector = "#game-name";
+  this.logInButtonSelector = '#sign-in-button';
 
 }
 
@@ -33,6 +34,10 @@ View.prototype = {
 
   stopButton: function() {
     this.updateRocketPosition()
+
+  },
+
+  logInButton: function() {
 
   }
 
