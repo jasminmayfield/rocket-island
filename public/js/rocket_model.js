@@ -1,6 +1,6 @@
 function Rocket(x,y) {
 
-  this.x = 1200; // 'x' is right position from screen
+  this.x = 1000; // 'x' is right position from screen
   this.y = 100;
 
 }
@@ -14,7 +14,7 @@ Rocket.prototype = {
   },
   moveDown: function(){
 
-    this.y += 10;
+    this.y += 3;
   },
   moveUp: function(){
 
@@ -22,7 +22,6 @@ Rocket.prototype = {
   },
 
   incrementLocation: function() {
-
     this.location = this.location + 10;
   }
 };
