@@ -9,8 +9,9 @@ function View(user, rocket)
   this.stopButtonSelector = "#stop";
   this.controlPanelSelector = "#control-panel";
   this.gameNameSelector = "#game-name";
+  this.showWinSelector = ".win";
+  this.showLoseSelector = ".lose";
   this.logInButtonSelector = '#sign-in-button';
-
 }
 
 View.prototype = {
@@ -32,8 +33,16 @@ View.prototype = {
 
   },
 
+  showWin: function() {
+    $(this.showWinSelector).removeClass("win")
+    $(this.showWinSelector).addClass("active");
+  },
+  showLose: function() {
+    $(this.showLoseSelector).removeClass("lose")
+    $(this.showLoseSelector).addClass("active");
+
+
   logInButton: function() {
 
   }
-
 }

@@ -3,7 +3,6 @@ function Controller() {
   this.rocket = null;
   this.view = null;
   this.interval = null;
-
 }
 
 Controller.prototype = {
@@ -15,14 +14,21 @@ Controller.prototype = {
     this.view = new View(this.user,this.rocket);
     this.bindEvents();
     this.pressingUp = false; //new var to track rocket's upward acceleration, used to stop gravity's impact while accellerating
-    },
+    this.gameWon = false;
+    this.gameLost = false;
+    this.lose_y = 490;
+    this.win_x1 = 150;
+    this.win_x2 = 310;
+    this.win_y1 = 405;
+    this.win_y2 = 460;
+  },
 
   bindEvents: function(){
     $(document).on("keydown",this.keypress.bind(this));
+    $(document).on("keyup",this.keyrelease.bind(this)); //event listener is keyup, calls our keyrelease function
     $(this.view.logInButtonSelector).on("click", this.logInButton.bind(this));
     $(this.view.startButtonSelector).on("click", this.startButton.bind(this));
     $(this.view.stopButtonSelector).on("click", this.stopButton.bind(this))
-    $(document).on("keyup",this.keyrelease.bind(this)); //event listener is keyup, calls our keyrelease function
   },
 
   logInButton: function(e) {
@@ -57,8 +63,47 @@ Controller.prototype = {
     };
   },
 
-  gravity: function()
-  {
+  gameLoop: function(e) {
+    this.gravity();
+    this.checkLose();
+    this.checkWin();
+  },
+  checkLose: function() {
+    console.log("loser loser", this);
+    console.log(this.rocket.y, this.lose_y, (this.rocket.y > this.lose_y))
+    if(this.rocket.y > this.lose_y) {
+      this.gameLost = true;
+      this.endGame();
+    }
+  },
+  checkWin: function() {
+    console.log("winner winner", this);
+    var check_x = (this.rocket.x > this.win_x1) && (this.rocket.x < this.win_x2);
+    var check_y = (this.rocket.y > this.win_y1) && (this.rocket.y > this.win_y2);
+    console.log(check_x, check_y, (check_x && check_y))
+    if(check_x && check_y) {
+      this.gameWon = true;
+      this.endGame();
+    }
+  },
+  endGame: function(){
+    if(this.gameWon) {
+      console.log("You won");
+      this.user.points += 100;
+      this.view.showWin();
+
+      console.log(this.user.points);
+    } else if(this.gameLost) {
+      console.log("You lost");
+      this.view.showLose();
+    };
+    clearInterval(this.interval);
+    $(document).off();
+    //$(document).off("keydown",this.keypress.bind(this));
+    //$(document).off("keyup",this.keyrelease.bind(this));
+  },
+  gravity: function() {
+    console.log("I'm free falling!", this);
     if(!this.pressingUp){
       this.rocket.moveDown(); //if keyup has happened, gravity moves it down
     };
@@ -67,13 +112,16 @@ Controller.prototype = {
 
   startButton: function(e) {
     this.view.startButton();
-    this.interval = setInterval(this.gravity.bind(this),150);
+    this.interval = setInterval(this.gameLoop.bind(this),150);
   },
-
   stopButton: function(e) {
     this.rocket.resetLocation;
     clearInterval(this.interval);
     this.view.updateRocketPosition();
   }
+
+  // gameDone: function (e){
+  //   $("keypress").unbind("keydown");
+  // }
 };
 
