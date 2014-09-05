@@ -26,7 +26,7 @@ Rocket.prototype = {
   },
 
   resetLocation: function() {
-    this.x = 1200;
+    this.x = 1000;
     this.y = 100;
   }
 };

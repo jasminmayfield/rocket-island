@@ -11,15 +11,10 @@ function View(user, rocket)
   this.gameNameSelector = "#game-name";
   this.showWinSelector = ".win";
   this.showLoseSelector = ".lose";
-
+  this.logInButtonSelector = '#sign-in-button';
 }
 
 View.prototype = {
-
-  showUserInformation: function() {
-    var output = "Welcome "+this.user.name+"! Your current points are: "+this.user.points;
-    $(this.userInfoSelector).html(output)
-  },
 
   updateRocketPosition: function() {
     $(this.rocketSelector).css("left",this.rocket.x).css("top",this.rocket.y)
@@ -37,6 +32,7 @@ View.prototype = {
     this.updateRocketPosition()
 
   },
+
   showWin: function() {
     $(this.showWinSelector).removeClass("win")
     $(this.showWinSelector).addClass("active");
@@ -44,5 +40,9 @@ View.prototype = {
   showLose: function() {
     $(this.showLoseSelector).removeClass("lose")
     $(this.showLoseSelector).addClass("active");
+
+
+  logInButton: function() {
+
   }
 }

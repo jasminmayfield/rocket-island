@@ -30,6 +30,7 @@
       <form id="log-out" method='get' action='/sign-out'>
         <input type='submit' value='Sign out'/>
       </form>
+      <button id="stop">Pause</button>
     <% end %>
   </div>
 
@@ -37,9 +38,9 @@
 
   <div id="control-panel">
     <% if @user %>
-      <h1>Welcome <%= @user.name %></h1>
+      <h1>Welcome <%= @user.name %> Your current points are: <%= @user.points %></h1>
       <button id="start">Launch</button>
-      <button id="stop">STOP</button>
+
 
     <% else %>
 
@@ -48,7 +49,7 @@
       <% end %>
       <form id="log-in" method='post' action='/sign-in'>
         <input type='text' name='name'/>
-        <input type='submit' value='Sign in'/>
+        <input id='sign-in-button' type='submit' value='Sign in'/>
       </form>
     <% end %>
   </div>
