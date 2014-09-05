@@ -20,7 +20,8 @@ Controller.prototype = {
     this.win_x1 = 150;
     this.win_x2 = 370;
     this.win_y1 = 400;
-    this.win_y2 = 550;
+    this.win_y2 = 55
+    0;
   },
 
   bindEvents: function(){
@@ -126,8 +127,5 @@ Controller.prototype = {
 
   }
 
-  // gameDone: function (e){
-  //   $("keypress").unbind("keydown");
-  // }
 };
 
