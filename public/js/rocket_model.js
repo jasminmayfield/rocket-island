@@ -13,11 +13,9 @@ Rocket.prototype = {
     this.x += 10;
   },
   moveDown: function(){
-
     this.y += 3;
   },
   moveUp: function(){
-
     this.y -= 10;
   },
 

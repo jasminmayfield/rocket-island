@@ -5,10 +5,8 @@ function User() {
 
 User.prototype = {
   logIn: function(url, element) {
-    console.log("AHHHHHHHHH")
-    var data = $(element).closest('form').serialize();
-      console.log(data);
-    var self = this;
+      var data = $(element).closest('form').serialize();
+      var self = this;
       var ajaxRequest = $.ajax({
         url: url,
         data: data,
@@ -18,19 +16,17 @@ User.prototype = {
           self.name = data.user.name
           self.points = data.user.points
           window.location.replace('/')
-
         },
         error: function(data) {
           window.location.replace('/')
-          // location.reload();
         }
       });
   },
 
   updatePoints: function() {
     var self = this;
+    console.log(self.name)
     var ajaxRequest = $.ajax({
-
         url: '/user/Max',
         type: "PUT",
         data: {points: self.points},
@@ -41,4 +37,3 @@ User.prototype = {
       });
   }
 };
-
