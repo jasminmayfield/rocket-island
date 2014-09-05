@@ -12,6 +12,7 @@ function View(user, rocket)
   this.showWinSelector = ".win";
   this.showLoseSelector = ".lose";
   this.logInButtonSelector = '#sign-in-button';
+
 }
 
 View.prototype = {

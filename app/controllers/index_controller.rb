@@ -20,7 +20,8 @@ end
 
 get "/sign-out" do
   session[:user] = nil
-  erb :index
+  # erb :index
+  redirect '/'
 end
 
 put "/user/:name" do

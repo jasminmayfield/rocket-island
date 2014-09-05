@@ -4,9 +4,9 @@ function User() {
 };
 
 User.prototype = {
-  logIn: function(url) {
+  logIn: function(url, element) {
     console.log("AHHHHHHHHH")
-    var data = $('#sign-in-button').closest('form').serialize();
+    var data = $(element).closest('form').serialize();
       console.log(data);
     var self = this;
       var ajaxRequest = $.ajax({

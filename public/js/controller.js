@@ -38,7 +38,7 @@ Controller.prototype = {
      console.log("log in button function in controller")
      console.log(this.user)
      var logInUrl = $(this.view.logInButtonSelector).closest('form').attr("action");
-     this.user.logIn(logInUrl);
+     this.user.logIn(logInUrl, this.view.logInButtonSelector);
        },
 
   keypress: function(e) {
