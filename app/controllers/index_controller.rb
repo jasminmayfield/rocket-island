@@ -6,6 +6,7 @@ get "/" do
      erb :index
 end
 
+
 post "/sign-in" do
   @user = User.find_by_name(params[:name])
   puts @user

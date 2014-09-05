@@ -13,7 +13,6 @@ Controller.prototype = {
 
     this.rocket = new Rocket();
     this.view = new View(this.user,this.rocket);
-    this.view.showUserInformation();
     this.bindEvents();
     this.pressingUp = false; //new var to track rocket's upward acceleration, used to stop gravity's impact while accellerating
     },

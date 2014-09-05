@@ -14,12 +14,14 @@ var data = $('#sign-in-button').closest('form').serialize();
         data: data,
         type: "POST",
         success: function(data) {
+          console.log(data)
           self.name = data.user.name
           self.points = data.user.points
           location.reload();
+
         },
         error: function(data) {
-          location.reload();
+          // location.reload();
         }
       });
   }
