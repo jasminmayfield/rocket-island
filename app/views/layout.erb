@@ -27,11 +27,17 @@
 
   <div id="nav-bar">
     <% if @user %>
-      <form id="log-out" method='get' action='/sign-out'>
-        <input type='submit' value='Sign out'/>
-      </form>
-      <button id="stop">Pause</button>
+    <ul>
+      <li>
+        <form id="log-out" method='get' action='/sign-out'>
+          <input type='submit' value='Sign out'/>
+        </form>
+      </li>
+      <li>
+        <button id="stop">Pause</button>
+      </li>
     <% end %>
+  </ul>
   </div>
 
   <%= yield %>
@@ -58,7 +64,7 @@
     <h1 class="lose">Hold tight, we've got your GPS position! Sinatra will be with you in a ditty!</h1>
   </div>
 
-  <div>
+  <div class="island">
     <img class="island-image" alt="Island" src="../css/imgs/islandimage.png" />
   </div>
   <div>
