@@ -90,7 +90,9 @@ Controller.prototype = {
     if(this.gameWon) {
       console.log("You won");
       this.user.points += 100;
+      this.user.updatePoints();
       this.view.showWin();
+      this.checkLevel();
 
       console.log(this.user.points);
     } else if(this.gameLost) {
@@ -118,6 +120,10 @@ Controller.prototype = {
     this.rocket.resetLocation;
     clearInterval(this.interval);
     this.view.updateRocketPosition();
+  },
+
+  checkLevel: function() {
+
   }
 
   // gameDone: function (e){

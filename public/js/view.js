@@ -40,7 +40,7 @@ View.prototype = {
   showLose: function() {
     $(this.showLoseSelector).removeClass("lose")
     $(this.showLoseSelector).addClass("active");
-
+  },
 
   logInButton: function() {
 
