@@ -6,7 +6,7 @@ function User() {
 User.prototype = {
   logIn: function(url) {
     console.log("AHHHHHHHHH")
-var data = $('#sign-in-button').closest('form').serialize();
+    var data = $('#sign-in-button').closest('form').serialize();
       console.log(data);
     var self = this;
       var ajaxRequest = $.ajax({
@@ -17,12 +17,27 @@ var data = $('#sign-in-button').closest('form').serialize();
           console.log(data)
           self.name = data.user.name
           self.points = data.user.points
-          location.reload();
+          window.location.replace('/')
 
         },
         error: function(data) {
+          window.location.replace('/')
           // location.reload();
         }
+      });
+  },
+
+  updatePoints: function() {
+    var self = this;
+    var ajaxRequest = $.ajax({
+
+        url: '/user/Max',
+        type: "PUT",
+        data: {points: self.points},
+        success: function(data) {
+          self.points += data.points
+          window.location.replace('/')
+        },
       });
   }
 };
