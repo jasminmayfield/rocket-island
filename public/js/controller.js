@@ -16,11 +16,12 @@ Controller.prototype = {
     this.pressingUp = false; //new var to track rocket's upward acceleration, used to stop gravity's impact while accellerating
     this.gameWon = false;
     this.gameLost = false;
-    this.lose_y = 490;
+    this.lose_y = 610;
     this.win_x1 = 150;
-    this.win_x2 = 310;
-    this.win_y1 = 405;
-    this.win_y2 = 460;
+    this.win_x2 = 370;
+    this.win_y1 = 400;
+    this.win_y2 = 55
+    0;
   },
 
   bindEvents: function(){
@@ -131,8 +132,5 @@ Controller.prototype = {
 
   }
 
-  // gameDone: function (e){
-  //   $("keypress").unbind("keydown");
-  // }
 };
 
