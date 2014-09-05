@@ -17,11 +17,11 @@ User.prototype = {
           console.log(data)
           self.name = data.user.name
           self.points = data.user.points
-          window.location.replace('/')
+          // window.location.replace('/')
 
         },
         error: function(data) {
-          window.location.replace('/')
+          // window.location.replace('/')
           // location.reload();
         }
       });
@@ -36,7 +36,7 @@ User.prototype = {
         data: {points: self.points},
         success: function(data) {
           self.points += data.points
-          window.location.replace('/')
+          // window.location.replace('/')
         },
       });
   }
