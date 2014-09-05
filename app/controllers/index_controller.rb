@@ -6,7 +6,6 @@ get "/" do
      erb :index
 end
 
-
 post "/sign-in" do
   @user = User.find_by_name(params[:name])
   if @user
@@ -20,7 +19,7 @@ end
 
 get "/sign-out" do
   session[:user] = nil
-  erb :index
+  redirect '/'
 end
 
 put "/user/:name" do
