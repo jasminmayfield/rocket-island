@@ -3,6 +3,7 @@ function Controller() {
   this.rocket = null;
   this.view = null;
   this.interval = null;
+  this.pause = false;
 }
 
 Controller.prototype = {
@@ -117,9 +118,16 @@ Controller.prototype = {
     this.interval = setInterval(this.gameLoop.bind(this),150);
   },
   stopButton: function(e) {
+    if ( this.pause === false){
     this.rocket.resetLocation;
     clearInterval(this.interval);
     this.view.updateRocketPosition();
+    this.pause = true;
+     } else {
+      this.interval = setInterval(this.gameLoop.bind(this),150);
+      this.pause = false;
+     }
+
   },
 
   checkLevel: function() {
