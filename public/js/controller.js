@@ -10,7 +10,6 @@ Controller.prototype = {
 
   start: function(){
     this.user = new User();
-
     this.rocket = new Rocket();
     this.view = new View(this.user,this.rocket);
     this.bindEvents();
@@ -34,11 +33,10 @@ Controller.prototype = {
 
   logInButton: function(e) {
     e.preventDefault();
-     // this.view.logInButton();
      console.log("log in button function in controller")
      console.log(this.user)
      var logInUrl = $(this.view.logInButtonSelector).closest('form').attr("action");
-     this.user.logIn(logInUrl);
+     this.user.logIn(logInUrl, this.view.logInButtonSelector);
        },
 
   keypress: function(e) {
@@ -127,7 +125,6 @@ Controller.prototype = {
       this.interval = setInterval(this.gameLoop.bind(this),150);
       this.pause = false;
      }
-
   },
 
   checkLevel: function() {
