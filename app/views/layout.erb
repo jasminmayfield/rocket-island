@@ -15,14 +15,13 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
   <script src="/js/controller.js"></script>
   <script src="/js/view.js"></script>
   <script src="/js/user_model.js"></script>
   <script src="/js/rocket_model.js"></script>
+  <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Rocket Ship</title>
 </head>
 <body>
 
@@ -33,7 +32,7 @@
       </form>
     <% end %>
   </div>
-  
+
   <%= yield %>
 
   <div id="control-panel">
@@ -53,6 +52,10 @@
       </form>
     <% end %>
   </div>
+  <div id="game_state_message">
+    <h1 class="win">Coconuts for breakfast - you win!</h1>
+    <h1 class="lose">Hold tight, we've got your GPS position! Sinatra will be with you in a ditty!</h1>
+  </div>
 
   <div>
     <img class="island-image" alt="Island" src="../css/imgs/islandimage.png" />
@@ -60,7 +63,6 @@
   <div>
     <img class="rocketship" alt="Rocketship" src="../css/imgs/rocket.png" />
   </div>
-  <div id="landing_pad" >
-  </div>
+
 </body>
 </html>
